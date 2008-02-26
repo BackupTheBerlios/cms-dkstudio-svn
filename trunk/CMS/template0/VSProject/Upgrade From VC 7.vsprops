@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="big5"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="Upgrade From VC 7"
+	>
+	<Tool
+		Name="VCResourceCompilerTool"
+		PreprocessorDefinitions="_VC80_UPGRADE=0x0710"
+	/>
+</VisualStudioPropertySheet>
