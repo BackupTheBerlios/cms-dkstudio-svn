@@ -46,11 +46,18 @@ void CMSFrm::CreateGUIControls()
 	//wxDev-C++ designer will remove them.
 	//Add the custom code before or after the blocks
 	////GUI Items Creation Start
-#ifdef _win32_
-	SetTitle(wxT("test"));
-#else
+
+	WxMenuBar1 = new wxMenuBar();
+
+	WxStatusBar1 = new wxStatusBar(this, ID_WXSTATUSBAR1);
+	WxStatusBar1->SetStatusText(wxT("Ready"), 0);
+	WxToolBar1 = new wxToolBar(this, ID_WXTOOLBAR1);
+	WxToolBar1->SetFont(wxFont(9, wxSWISS, wxNORMAL,wxNORMAL, false, wxT("·s²Ó©úÅé")));
+
+	//WxToolBar1->Realize();
+	//SetToolBar(WxToolBar1);
+	SetStatusBar(WxStatusBar1);
 	SetTitle(wxT("CMS"));
-#endif
 	SetIcon(wxIcon(wxT("logo")));
 	SetSize(8,8,320,350);
 	Center();
