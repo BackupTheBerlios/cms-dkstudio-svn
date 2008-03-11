@@ -25,9 +25,9 @@
 //Header Include Start and Header Include End.
 //wxDev-C++ designer will remove them. Add custom headers after the block.
 ////Header Include Start
+#include <wx/menu.h>
 #include <wx/toolbar.h>
 #include <wx/statusbr.h>
-#include <wx/menu.h>
 ////Header Include End
 
 ////Dialog Style Start
@@ -43,15 +43,16 @@ class CMSFrm : public wxFrame
 	public:
 		CMSFrm(wxWindow *parent, wxWindowID id = 1, const wxString &title = wxT("CMS"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = CMSFrm_STYLE);
 		virtual ~CMSFrm();
+	void Mnuclose3Click(wxCommandEvent& event);
 		
 	private:
 		//Do not add custom control declarations between
 		//GUI Control Declaration Start and GUI Control Declaration End.
 		//wxDev-C++ will remove them. Add custom code after the block.
 		////GUI Control Declaration Start
+		wxMenuBar *WxMenuBar1;
 		wxToolBar *WxToolBar1;
 		wxStatusBar *WxStatusBar1;
-		wxMenuBar *WxMenuBar1;
 		////GUI Control Declaration End
 		
 	private:
@@ -62,6 +63,7 @@ class CMSFrm : public wxFrame
 		enum
 		{
 			////GUI Enum Control ID Start
+			ID_MNU_CLOSE_3 = 3,
 			ID_WXTOOLBAR1 = 2,
 			ID_WXSTATUSBAR1 = 1,
 			////GUI Enum Control ID End
