@@ -57,7 +57,7 @@ void CMSFrm::CreateGUIControls()
 	WxToolBar1->AddTool(ID_MNU_CLOSE_3, note_edit, wxT("note_edit"));
 	WxMenuBar1 = new wxMenuBar();
 	wxMenu *ID_MNU_CLOSE_3_Mnu_Obj = new wxMenu(0);
-	wxMenuItem* mItem= new wxMenuItem(ID_MNU_CLOSE_3_Mnu_Obj, ID_MNU_CLOSE_3, wxT("note_edit"));
+	wxMenuItem* mItem= new wxMenuItem(ID_MNU_CLOSE_3_Mnu_Obj, ID_MNU_CLOSE_3, wxT("note_edit"),wxGetTranslation(wxT("Exit")));
 	mItem->SetBitmaps(note_edit);
 	ID_MNU_CLOSE_3_Mnu_Obj->Append(mItem);
 	WxMenuBar1->Append(ID_MNU_CLOSE_3_Mnu_Obj, wxT("File"));
