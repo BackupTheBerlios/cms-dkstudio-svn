@@ -25,6 +25,9 @@ class CMSFrmApp : public wxApp
 	public:
 		bool OnInit();
 		int OnExit();
+
+	private :
+		wxLocale* m_locale; // ¡¦our¡¦ locale
 };
 
 #endif

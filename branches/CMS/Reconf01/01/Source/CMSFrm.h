@@ -64,8 +64,8 @@ class CMSFrm : public wxFrame
 		{
 			////GUI Enum Control ID Start
 			ID_MNU_CLOSE_3 = 3,
-			ID_WXTOOLBAR1 = 2,
-			ID_WXSTATUSBAR1 = 1,
+			ID_WXTOOLBAR_2 = 2,
+			ID_WXSTATUSBAR_1 = 1,
 			////GUI Enum Control ID End
 			ID_DUMMY_VALUE_ //don't remove this value unless you have other enum values
 		};

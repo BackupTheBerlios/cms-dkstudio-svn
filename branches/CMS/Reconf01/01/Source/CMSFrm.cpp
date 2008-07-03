@@ -8,12 +8,18 @@
 //---------------------------------------------------------------------------
 
 #include "CMSFrm.h"
+#include "Command/CmsCmdStruct.h"
+
 #include "../Images/note_edit.xpm"
+#include "../Images/exit.xpm"
+#include "../Images/exit_b.xpm"
 //Do not add custom headers between
 //Header Include Start and Header Include End
 //wxDev-C++ designer will remove them
 ////Header Include Start
 ////Header Include End
+
+//#define _(s)    wxT(s)
 
 //----------------------------------------------------------------------------
 // CMSFrm
@@ -23,10 +29,9 @@
 ////Event Table Start
 BEGIN_EVENT_TABLE(CMSFrm,wxFrame)
 	////Manual Code Start
-	////Manual Code End
-	
 	EVT_CLOSE(CMSFrm::OnClose)
 	EVT_MENU(ID_MNU_CLOSE_3, CMSFrm::Mnuclose3Click)
+	////Manual Code End
 END_EVENT_TABLE()
 ////Event Table End
 
@@ -48,22 +53,31 @@ void CMSFrm::CreateGUIControls()
 	//Add the custom code before or after the blocks
 	////GUI Items Creation Start
 
-	WxStatusBar1 = new wxStatusBar(this, ID_WXSTATUSBAR1);
+	const wxBitmap note_edit(note_edit_xpm,wxBITMAP_TYPE_XPM);
+	const wxBitmap exit(exit_xpm,wxBITMAP_TYPE_XPM);
+	const wxBitmap exit_b(exit_b_xpm,wxBITMAP_TYPE_XPM);
 
-	WxToolBar1 = new wxToolBar(this, ID_WXTOOLBAR1, wxPoint(0,0), wxSize(312,30));
+	WxStatusBar1 = new wxStatusBar(this, ID_WXSTATUSBAR_1);
+
+	WxToolBar1 = new wxToolBar(this, ID_WXTOOLBAR_2, wxPoint(0,0), wxSize(312,30));
 	WxToolBar1->SetFont(wxFont(9, wxSWISS, wxNORMAL,wxNORMAL, false, wxT("·s²Ó©úÅé")));
-	wxBitmap note_edit(note_edit_xpm);
-	WxToolBar1->SetToolBitmapSize(wxSize(24,24));
-	WxToolBar1->AddTool(ID_MNU_CLOSE_3, note_edit, wxT("note_edit"));
-	WxMenuBar1 = new wxMenuBar();
-	wxMenu *ID_MNU_CLOSE_3_Mnu_Obj = new wxMenu(0);
-	wxMenuItem* mItem= new wxMenuItem(ID_MNU_CLOSE_3_Mnu_Obj, ID_MNU_CLOSE_3, wxT("note_edit"),wxGetTranslation(wxT("Exit")));
-	mItem->SetBitmaps(note_edit);
-	ID_MNU_CLOSE_3_Mnu_Obj->Append(mItem);
-	WxMenuBar1->Append(ID_MNU_CLOSE_3_Mnu_Obj, wxT("File"));
-	SetMenuBar(WxMenuBar1);
 
+	CMDSTRUCT CMDMenu={ID_MNU_CLOSE_3,_("Exit"),_("Exit CMS"),wxT("Ctrl+S"),wxITEM_NORMAL,exit,exit_b,0};
+
+	WxToolBar1->SetToolBitmapSize(wxSize(16,16));
+	WxToolBar1->AddTool(ID_MNU_CLOSE_3, exit, _("Exit CMS"),wxGetTranslation(CMDMenu.MenuText));	
+	
+	
+	wxMenu *Menu1 = new wxMenu(0);
+	wxMenuItem* mItem= new wxMenuItem(Menu1, CMDMenu.MenuID, CMDMenu.MenuName,wxGetTranslation(CMDMenu.MenuText));
+	mItem->SetBitmaps(CMDMenu.MenuBitmapTrue);
+	Menu1->Append(mItem);
+	WxMenuBar1 = new wxMenuBar();
+	WxMenuBar1->Append(Menu1, _("File"));
+	SetMenuBar(WxMenuBar1);
+	
 	WxToolBar1->Realize();
+	
 	SetStatusBar(WxStatusBar1);
 	SetToolBar(WxToolBar1);
 	SetTitle(wxT("CMS"));
@@ -87,4 +101,3 @@ void CMSFrm::Mnuclose3Click(wxCommandEvent& event)
     Close(false);
 	// insert your code here
 }
-

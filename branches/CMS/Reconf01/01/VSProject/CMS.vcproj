@@ -118,6 +118,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
+				Optimization="3"
 				AdditionalIncludeDirectories="&quot;$(WXWIN)\lib\vc_lib\mswu&quot;;&quot;$(WXWIN)\Include&quot;"
 				RuntimeLibrary="0"
 				WarningLevel="3"
@@ -141,7 +142,7 @@
 				OutputFile="$(OutDir)\$(ProjectName).exe"
 				AdditionalLibraryDirectories="..\lib;&quot;$(WXWIN)\lib\vc_lib\&quot;"
 				ManifestFile="$(IntDir)\$(TargetFileName).intermediate.manifest"
-				GenerateDebugInformation="true"
+				GenerateDebugInformation="false"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				TargetMachine="1"
@@ -196,6 +197,14 @@
 			>
 			<File
 				RelativePath="..\Source\CMSApp.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Source\Command\CmsCmdStruct.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Source\CmsCommand.h"
 				>
 			</File>
 			<File

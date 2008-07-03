@@ -1,7 +1,7 @@
 # Project: CMS
 # Compiler: Default GCC compiler
 # Compiler Type: MingW 3
-# Makefile created by wxDev-C++ 6.10.2 on 17/03/08 20:24
+# Makefile created by wxDev-C++ 6.10.2 on 25/06/08 22:04
 
 CPP       = g++.exe
 CC        = gcc.exe
@@ -29,7 +29,7 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(LINK) $(LINKOBJ) -o "..\EXE\MingW\CMS.exe" $(LIBS)
 
-../OBJ/MingW/CMSFrm.o: $(GLOBALDEPS) ../Source/CMSFrm.cpp ../Source/CMSFrm.h ../Images/note_edit.xpm
+../OBJ/MingW/CMSFrm.o: $(GLOBALDEPS) ../Source/CMSFrm.cpp ../Source/CMSFrm.h ../Source/Command/CmsCmdStruct.h ../Images/note_edit.xpm ../Images/exit.xpm ../Images/exit_b.xpm
 	$(CPP) -c ../Source/CMSFrm.cpp -o ../OBJ/MingW/CMSFrm.o $(CXXFLAGS)
 
 ../OBJ/MingW/CMSApp.o: $(GLOBALDEPS) ../Source/CMSApp.cpp ../Source/CMSApp.h ../Source/CMSFrm.h
