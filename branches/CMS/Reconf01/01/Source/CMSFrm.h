@@ -28,6 +28,7 @@
 #include <wx/menu.h>
 #include <wx/toolbar.h>
 #include <wx/statusbr.h>
+#include <wx/aui/aui.h>
 ////Header Include End
 
 ////Dialog Style Start
@@ -43,13 +44,16 @@ class CMSFrm : public wxFrame
 	public:
 		CMSFrm(wxWindow *parent, wxWindowID id = 1, const wxString &title = wxT("CMS"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = CMSFrm_STYLE);
 		virtual ~CMSFrm();
-	void Mnuclose3Click(wxCommandEvent& event);
+		
+		
 		
 	private:
 		//Do not add custom control declarations between
 		//GUI Control Declaration Start and GUI Control Declaration End.
 		//wxDev-C++ will remove them. Add custom code after the block.
 		////GUI Control Declaration Start
+
+		wxAuiManager m_mgr;
 		wxMenuBar *WxMenuBar1;
 		wxToolBar *WxToolBar1;
 		wxStatusBar *WxStatusBar1;
@@ -63,16 +67,21 @@ class CMSFrm : public wxFrame
 		enum
 		{
 			////GUI Enum Control ID Start
-			ID_MNU_CLOSE_3 = 3,
-			ID_WXTOOLBAR_2 = 2,
-			ID_WXSTATUSBAR_1 = 1,
+			ID_WXSTATUSBAR = 1,
+			ID_WXTOOLBAR,
+			ID_MENU_CLOSE,
+
 			////GUI Enum Control ID End
 			ID_DUMMY_VALUE_ //don't remove this value unless you have other enum values
 		};
 		
 	private:
-		void OnClose(wxCloseEvent& event);
 		void CreateGUIControls();
+		void UnGUIControls();
+		void OnClose(wxCloseEvent& event);
+		void CloseClick(wxCommandEvent& event);
+		
+		
 };
 
 #endif
